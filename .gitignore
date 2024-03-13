@@ -1,6 +1,6 @@
 # .env
 .env
-
+.vscode
 #c
 c/*
 c/*.o
@@ -11,3 +11,5 @@ c/**/*
 !c/**/lib/*.h
 !c/**/makefile
 !c/**/makefile.*
+#java
+**/*.class
