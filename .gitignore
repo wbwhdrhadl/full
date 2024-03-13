@@ -10,4 +10,4 @@ c/**/*
 !c/**/lib/
 !c/**/lib/*.h
 !c/**/makefile
-!c/**/makefile1
+!c/**/makefile.*
