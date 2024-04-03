@@ -7,12 +7,47 @@
 </head>
 
 <body>
-    <h1>RESTful API Example</h1>>
+    <h1>RESTful API Example</h1>
     <hr />
-    <form name="userForm" target="targetURL"></form>
-    <iframe name="targetURL" class="iframe-preview center" width="90" height="500" style="border:none"
-        src="http://192.168.1.74:8000/Hello">
-    </iframe>
+    <h3>GET APIs</h3>
+    <hr />
+    <form name="userForm" target="targetURL">
+
+        <input type="button" value="get /Hello" onclick='document.targetURL.
+            location.href="/Hello"'>&nbsp;&nbsp;&nbsp;
+        <input type="button" value="get /api/users" onclick='document.targetURL.
+            location.href="/api/users"'>
+        <br>
+        <br>
+        <input type="button" value="get Query params /api/users/user" onclick='document.targetURL.
+            location.href="/api/users/user"'>&nbsp;&nbsp;
+        <input type="button" value="get Path params /api/users/user" onclick='document.targetURL.
+            location.href="/api/users/:user_id"'>
+        <p>
+            ID &nbsp;<input type="text" name="id" size=10>
+        <p>
+            NAME &nbsp;<input type="text" name="name" size=10>
+            <br>
+            <br>
+            <input type="button" value="get Query params user_id & name /api/users/user"
+                onclick='document.targetURL.
+            location.href="/insert?ST_ID="+document.userForm.id.value+"&NAME="+document.userForm.name.value+"&DEPT="+document.userForm.dept.value'>
+            <hr />
+        <h3>POST APIs</h3>
+        <hr />
+        <p>
+            <input type="button" value="POST => /api/users/userBody"
+                onclick='document.targetURL.
+            location.href="/update?ST_ID="+document.userForm.id.value+"&NAME="+document.userForm.name.value+"&DEPT="+document.userForm.dept.value'>
+            <input type="button" value="POST => /api/users/add" onclick='document.targetURL.
+            location.href="/delete?ST_ID="+document.userForm.id.value'>
+        <p>
+
+
+    </form>
 </body>
+<iframe name="targetURL" class="iframe-preview center" width="90%" height="500" style="border:none"
+    src="http://192.168.1.74:8000/Hello">
+</iframe>
 
 </html>
