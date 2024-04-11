@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입으로 Car 객체 만들기</title>
+    <script>
+        function Car(brand, grade, maxFuel, displacement, price) {
+            this.brand = brand;
+            this.grade = grade;
+            this.maxFuel = maxFuel;
+            this.displacement = displacement;
+            this.price = price;
+
+            this.leftoverFuel = maxFuel;
+
+            this.info = function () {
+                document.write(`
+                    brand : ${this.brand}<br>
+                    grade : ${this.grade}<br>
+                    maxfuel : ${this.maxFuel}<br>
+                    displacement : ${this.displacement}<br>
+                    price : ${this.price}<br><hr>`);
+            };
+
+            this.drive = function(from, to, distance){
+                this.leftoverFuel -=distance;
+                document.write(
+                    `${this.brand} 차량이 ${from}에서 ${to}까지 ${distance}km 주행하셧습니다.<br>`
+                );
+                if(this.leftoverFuel>50)
+                    document.write( 
+                        `잔여 연료량은 ${this.leftoverFuel}입니다. <br><hr />`
+                    );
+                else
+                    document.write(
+                        `잔여 연료량은 ${this.leftoverFuel}입니다. <br> 주요가 필요합니다. <br><hr />`
+                    );
+            };
+            this.refueling = function(amount){
+                this.leftoverFuel +=amount;
+                document.write(
+                    `${amount}L 주유하여 잔여 연료량은 ${this.leftoverFuel}입니다. <br><hr />`
+                );
+            };
+        }
+    </script>
+</head>
+<body>
+    <h3>프로포타입으로 Car 객체 만들기</h3>
+    <hr/>
+    <script>
+        let benz = new Car("Benz","SUV",900,4000,3000);
+        benz.info();
+        benz.drive("Seoul","Busan",400);
+        benz.drive("Busan","Incheon",460);
+        benz.refueling(860);
+
+        let bmw = new Car("bmw","Sedan",500,2500,2000);
+        benz.info();
+        benz.drive("Seoul","Daejeon",300);
+        benz.refueling(200);
+        benz.drive("Dajeon","Seoul",300);
+    </script>
+    
+</body>
+</html>
