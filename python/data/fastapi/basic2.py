@@ -13,13 +13,12 @@ async def Hello():
 
 @app.get(path='/hello/{name}')
 async def hello_with_name(name:str):
-    return "Hello with name. your name is"+name
+    return "Hello with name. your name is " + name
 
-@app.get(path='/hello/query')
+@app.get(path='/hello')
 async def hello_with_querystring(name:str):
-    return "Hello with name. your name is"+name
+    return "Hello with name. your name is " + name
 
-@app.get(path='/hello/post')
-async def hello_post(request: HelloworldRequest):
-     return "Hello with name. your name is {}, your age is P{}".format(request.name, request.age)
-
+@app.post(path='/hello/post')
+async def hello_post(request: HelloWorldRequest):
+    return "Hello with post. your name is {}, your age is {}".format(request.name, request.age)
