@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+import random
+class Calculate(object):
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+
+    def add(self):
+        return self.first + self.second
+
+    def sub(self):
+        return self.first - self.second
+    def mult(self):
+        return self.first * self.second
+    def div(self):
+        return self.first / self.second
+
+a = random.randint(1, 20 + 1)
+b = random.randint(1, 10 + 1)
+
+calc = Calculate(14, 2)
+
+print(f'{a}+{b} = {calc.add()}')
+print(f'{a}-{b} = {calc.sub()}')
+print(f'{a}*{b} = {calc.mult()}')
+print(f'{a}/{b} = {round(calc.div(),3)}')
