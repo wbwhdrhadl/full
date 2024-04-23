@@ -34,7 +34,7 @@ python//secret.json
 python/**/imsi*
 python/**/somefolder*
 python/**/work
-
+python/secret.json
 
 ## oracle
 oracle/node/dbConfig.js
