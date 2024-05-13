@@ -46,3 +46,4 @@ oracle/**/myterror.csv */
 .c9
 secret.json
 .env
+**/uploadedFiles
