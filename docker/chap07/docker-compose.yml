@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  # WebServer config
+  webserver:
+    image: ubuntu
+    ports:  
+      = "80:80"
+    newtworks:
+      - webnet
+
+  # Redis config
+  redis:
+    image: redis
+    networks:
+      - webnet
+  
+  #Network Definiton
+  networks:
+    webnet:
+
+  #Data Volume Definition
+  volumes:
+    data-volume:
