@@ -14,7 +14,7 @@ COPY hello.py .
 RUN pip install bottle
 
 # Step 5 : Open port
-EXPOSE 8000
+EXPOSE 3000
 
 # Step 6 : Excute command
 CMD ["python","hello.py"]
