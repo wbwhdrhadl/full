@@ -27,10 +27,9 @@ spec:
     app: mario
   ports:
     - nodePort: 31000 # outter port
-      port: 80 # service port
-      targetPort: 80 # container port (pod port)
+      port: 80  # service port
+      targetPort: 80  # container port
       protocol: TCP
   type: LoadBalancer
   externalIPs:
-    - 3.39.254.26
-
+  	- 3.39.254.26
