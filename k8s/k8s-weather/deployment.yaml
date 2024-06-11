@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: remoteapi
+  name: weathers
   labels:
-    app: remoteapi
+    app: weaters
 spec:
-  replicas: 3 # three pod
+  replicas: 1 # three pod
   selector:
     matchLabels:
-      app: remoteapi
+      app: weathers
   template:
     metadata:
       labels:
-        app: remoteapi
+        app: weathers
     spec:
       containers:
-        - name: remoteapi
-          image: daeun1013/remoteapi
+        - name: weathers
+          image: daeun1013/weathers
           ports:
             - containerPort: 8000 # Container port(pod port)

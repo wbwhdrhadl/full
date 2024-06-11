@@ -2,9 +2,9 @@ all : build run k8init appdep appsvc getdep getsvc getpod
 restart : delsvc deldep delpod appdep appsvc getdep getsvc getpod
 stop: delsvc deldep delpod
 build: 
-	docker build -t remote .
+	docker build -t weather .
 run:
-	docker run -it -d -p 8000:8000 --name remote remote
+	docker run -it -d -p 8000:8000 --name weather weather
 exec:
 	docker exec -it remote /bin/bash
 logs:
@@ -18,11 +18,11 @@ rm:
 rmi:
 	docker rmi $$(docker images -q)
 k8init:
-	docker commit remote remoteapi
-	docker tag remoteapi daeun1013/remoteapi
-	docker push daeun1013/remoteapi
+	docker commit weather weathers
+	docker tag remoteapi daeun1013/weathers
+	docker push daeun1013/weathers
 	docker rm -f $$(docker ps -aq)
-	docker rmi daeun1013/remoteapi
+	docker rmi impelfin/weathers
 	docker rmi -f $$(docker images -q)
 getnode:
 	kubectl get nodes
@@ -35,14 +35,14 @@ getsvc:
 getpod:
 	kubectl get pod -o wide
 delsvc:
-	kubectl delete svc remoteapi 
+	kubectl delete svc weathers
 deldep:
-	kubectl delete deployment remoteapi
+	kubectl delete deployment weathers
 delpod:
-	kubectl get pod | grep remoteapi | awk '{print $$1}' | xargs -I {} kubectl delete pod {} --force
+	kubectl get pod | grep weathers | awk '{print $$1}' | xargs -I {} kubectl delete pod {} --force
 desdep:
-	kubectl describe deployment remoteapi
+	kubectl describe deployment weathers
 dessvc:
-	kubectl describe svc remoteapi
+	kubectl describe svc weathers
 despod:
-	kubectl describe pod remoteapi
+	kubectl describe pod weathers
