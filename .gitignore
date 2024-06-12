@@ -47,3 +47,4 @@ oracle/**/myterror.csv */
 secret.json
 .env
 **/uploadedFiles
+/**/.venv
