@@ -4,13 +4,13 @@ from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import HuggingFaceEmbeddings
 from llama_index import Document
 
-loader - BeautifulSoupReader()
+loader = BeautifulSoupReader()
 
 documents = loader.load_data(urls=["https://openai.com/blog/planning-for-agi-and-beyong"])
 print("Documents loaded successfully")
 print(f"Loaded documents: {documents}")
 
-Document_objects = [Document(text=doc.text, extra_info=doc.metadata) for doc in documents]
+document_objects = [Document(text=doc.text) for doc in documents]
 
 embed_model = LangChainEmbedding(HuggingFaceEmbeddings(
     model_name="all-MiniLM-L6-v2"
